@@ -2,7 +2,7 @@
 
 We are Where DYSS (Ford Team No. 1) and this is our project page for Mobile Robotics (EECS 568).
 
-![image info](waldo_wave.jpg)
+![image info](where-dyss-logo.png)
 
 ### Team members:
 

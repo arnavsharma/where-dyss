@@ -130,6 +130,7 @@ def get_can_data(scene_name, data_root):
     veh_monitor_msgs = {
                         'utimes': veh_monitor_msgs_utimes,
                         'swa_data': veh_monitor_msgs_swa_data,
+                        'swa_rate_data': veh_monitor_msgs_swa_rate_data,
                         'veh_speed': veh_monitor_msgs_veh_speed,
                         'yaw_rate': veh_monitor_msgs_yaw_rate,
                         }

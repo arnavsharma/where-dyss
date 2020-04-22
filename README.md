@@ -60,4 +60,4 @@ The other ones include:
     13. Navigate to the */where-dyss/output/Images/PF/* directory in a normal Terminal session, and run the following in `convert -delay 50 -loop 0 <scene-entrystring_here>*.png <scene-entrystring_here>.gif` where `scene-entrystring_here` is for example 'scene-0249' without quotes. This will create a GIF of the data!
     14. Here is a GIF of the result!
     
-        ![scene-0249_gif_result](scene-0249.gif){:height="50%" width="50%"}
+        <img src="scene-0249.gif" height="50%">

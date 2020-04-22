@@ -1,7 +1,7 @@
 % Particle Filter script for EECS 568, Winter 2020, Ford Team 1
 % 
 % This script will generate MPEG-4 video files of the particles for each
-% desired scene as listed starting in Line 17. JPEG files of the ground
+% desired scene as listed starting in Line 18. JPEG files of the ground
 % truth (aka ego_pose at 2Hz as provided by NuScenes) superimposed with the
 % estimated states by the particles are generated. These already generated
 % files can be found in \where-dyss\output\Matlab\PF.
@@ -9,17 +9,15 @@
 % Additionally, this script will save the particle states (x and y
 % position) and the estimated states into a .mat file to be read in Python
 % for plotting on top of the 'fancy' map as an animation and final result.
-% Change this setting in Lines 21 and 22 appropriately.
+% Change this setting in Lines 22 and 23 appropriately.
 
 
 clc; clear; close all
-addpath('../../../own_data/PF_To_Matlab/Variable Landmarks')
+addpath('../../../own_data/PF_To_Matlab/Variable_Landmarks')
 
 desired_scenes = ["scene-0069", "scene-0247", "scene-0249", "scene-0395", ...
     "scene-0480", "scene-1017", "scene-1018", "scene-1048", ...
     "scene-0396"];
-
-% desired_scenes = ["scene-0249"];
 
 want_videos_jpg = 1;
 want_mat_files = 1;

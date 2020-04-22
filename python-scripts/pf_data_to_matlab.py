@@ -7,10 +7,10 @@ import scipy.io as sio
 import pickle
 import numpy as np
 
-#nusc = NuScenes(version='v1.0-trainval', dataroot='../data/sets/nuscenes', verbose = True)
-# If you have nusc saved in a .pickle file, import it here. We have provided one. If you receive an error, uncomment Line 10 and use that instead by commenting out Lines 12 and 13.
-with open('../own_data/nusc.pickle', 'rb') as f:
-    nusc = pickle.load(f)
+nusc = NuScenes(version='v1.0-trainval', dataroot='../data/sets/nuscenes', verbose = True)
+# If you have nusc saved in a .pickle file, import it here in Line 12. We have provided one but commented it out in case of errors if it is not transferrable to other machines due to directory setup.
+#with open('../own_data/nusc.pickle', 'rb') as f:
+#    nusc = pickle.load(f)
 
 
 # Bring in scene index data

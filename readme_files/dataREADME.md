@@ -4,7 +4,8 @@ The data used in the project is from the publicly available source [NuScenes by 
 
 To download the data to use our project code, please follow the following steps:
 1. Clone the NuScenes GitHub [repository]{https://github.com/nutonomy/nuscenes-devkit} into your $HOME directory. Then change directories into *nuscenes-devkit*. Install NuScenes by running the following code: and install it using `pip3 install nuscenes-devkit`.
-2. In the project directory */where-dyss/data/sets/nuscenes/*, please [download]{https://www.nuscenes.org/download} the US (unless specified) versions of CAN bus expansion, Map expansion, Full dataset (v1.0) (Metadata, Trainval Zip folders: 1, 3, 4, 5, (Asia) 10). This will include all the data used in our project. To use other scenes that may be provided in other Zip folders, please download the other Zip folders as you see fit.
+2. In the project directory */where-dyss/data/sets/nuscenes/*, please [download]{https://www.nuscenes.org/download} the US (unless specified) versions of CAN bus expansion, Map expansion, Full dataset (v1.0) (Metadata, Trainval Zip folders: 1, 3, 4, 5, (Asia) 10). This will include all the data used in our project. A table is provided below with descriptions of the scenes. To use other scenes that may be provided in other Zip folders, please download the other Zip folders as you see fit.
+
 3. After all is downloaded, please go back to the *$HOME/nuscenes-devkit* directory in Terminal and run `pip3 install -r setup/requirements.txt`.
 
 The final folder structure for the data should be as follows:

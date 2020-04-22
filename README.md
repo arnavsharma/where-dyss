@@ -35,6 +35,7 @@ The other ones include:
 
 ### Step-by-step Instructions
 1. Read and complete all steps listed in */where-dyss/readme_files/dataREADME.md*. It is very crucial that the resulting folder structure be exactly how it is stated in that README file.
+2. Git clone this project! `git clone https://github.com/arnavsharma/where-dyss.git`
 2. Running the Particle Filter code
     1. Make sure to read the */where-dyss/readme_files/pfREADME.md* file to get an idea of how the particle filter works.
     2. Skip to Step 2iii if you want to just visualize the 'scene-0249' data the group presented at the end of the Winter 2020 semester.
@@ -48,4 +49,14 @@ The other ones include:
     8. The resulting directory if both save options are set to `1` will look like the following:
         
         ![image info](pf_mat_file_directory.png)
+        
+        9. Now that the data has been saved, we can visualize it in Python!
+        10. In a new Terminal window, navigate to */where-dyss/python-functions/* directory and start a python3 terminal session by running `python3`.
+        11. Run `exec(open("pf_fancy_map_img_creation.py).read())`
+        12. Then run `pf_fancy_map_img_creation()`
+            1. In the start, the script will take a bit of time to run as it is indexing and reverse indexing the NuScenes data.
+            2. Once indexing is complete, it will prompt you to enter in a scene number string (i.e. scene-0249). And then it'll start evaluating the scene!
+            3. The .png images needed for a GIF animation will be saved in */where-dyss/output/Images/PF/*
+        13. Navigate to the */where-dyss/output/Images/PF/* directory in a normal Terminal session, and run the following in `convert -delay 50 -loop 0 <scene-entrystring_here>*.png <scene-entrystring_here>.gif` where `scene-entrystring_here` is for example 'scene-0249' without quotes. This will create a GIF of the data!
+        14. Here is an animation of the 
     

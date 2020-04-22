@@ -1,0 +1,15 @@
+EECS 568 Ford Team 1
+Team Project
+Interesting Scenes
+
+#0062 - Change lane, parked cars, overhead walkways
+0069  - Turn left, pets near parked bus, bird
+0247  - Construction vehicle, cone, lots of Barries, construction zone, cluster of peds
+0249  - Many peds, ped crossing road, parked cars
+0395  - Ped walking dog, peds, parking lot, truck, parked motorcycle
+#0396 - Parked cars, bicycle, parking lot ( LOOK INTO THIS ONE )
+#0446 - Rain, turn left, turn left
+0480  - Rain, parked cars, bicycle, parking lot
+1017  - Singapore - Night, red, cars, bump, scooter, congestion
+1018  - Singapore - Night, turn right, cars, bus, bus stop, scooter
+1048  - Complex Wet Road - Singapore - Night, dense traffic, congestion, motorcycle, turn right 

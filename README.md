@@ -18,7 +18,22 @@ We are Where DYSS (Ford Team No. 1) and this is our project page for Mobile Robo
 ### Project Information
 
 ### Dependencies
+There are quite a few libraries needed for the project code to run. The most important dependency (NuScenes, NuScenesMap, etc.) is explained in */where-dyss/readme_files/dataREADME.md*.
+
+The other ones include:
+* numpy
+* matplotlib
+* h5py
+* math
+* scipy
+* os
+* sys
+* pickle
+* pandas
+* warnings
+* time
 
 ### Step-by-step Instructions
-1. Test
-2. Test
+1. Read and complete all steps listed in */where-dyss/readme_files/dataREADME.md*. It is very crucial that the resulting folder structure be exactly how it is stated in that README file.
+2. Running the PF
+1. ds

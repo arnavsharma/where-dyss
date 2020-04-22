@@ -36,4 +36,5 @@ The other ones include:
 ### Step-by-step Instructions
 1. Read and complete all steps listed in */where-dyss/readme_files/dataREADME.md*. It is very crucial that the resulting folder structure be exactly how it is stated in that README file.
 2. Running the Particle Filter code
-* Hello
+    a. Make sure to read the */where-dyss/readme_files/pfREADME.md* file to get an idea of how the particle filter works.
+

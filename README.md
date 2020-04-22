@@ -2,7 +2,7 @@
 
 We are Where DYSS (Ford Team No. 1) and this is our project page for Mobile Robotics (EECS 568).
 
-![image info](where-dyss-logo.png)
+![where-dyss logo](where-dyss-logo.png)
 
 ### Team members:
 
@@ -38,7 +38,7 @@ The other ones include:
 2. Git clone this project! `git clone https://github.com/arnavsharma/where-dyss.git`
 2. Running the Particle Filter code
     1. Make sure to read the */where-dyss/readme_files/pfREADME.md* file to get an idea of how the particle filter works.
-    2. Skip to Step 2iii if you want to just visualize the 'scene-0249' data the group presented at the end of the Winter 2020 semester.
+    2. Skip to Step 10 if you want to just visualize the 'scene-0249' data the group presented at the end of the Winter 2020 semester in Python.
     3. The following code in Step 2.iv will be run in a *normal* terminal window (not in a Python3 terminal). The starting directory will be */where-dyss/python-scripts*. Step 2.iv may take some time to run, so please be patient
     4. `python3 pf_data_to_matlab.py`
         1. This will save the landmarks (annotations) position and ego vehicle position among other housekeeping items such as number of samples per scene, number of annotations per sample per scene, etc.
@@ -48,15 +48,16 @@ The other ones include:
     7. If you would like to not save the .mat files for animation purposes in Python, set `want_mat_files` to `0` in Line 23 of *pf_run_me.m*. Leave it set to `1` if you want to save .mat files for each scene. As in the previous step, please kindly move the .mat files one level down into *Variable_Landmarks* folder.
     8. The resulting directory if both save options are set to `1` will look like the following:
         
-        ![image info](pf_mat_file_directory.png)
+        ![pf .mat file directory](pf_mat_file_directory.png)
         
-        9. Now that the data has been saved, we can visualize it in Python!
-        10. In a new Terminal window, navigate to */where-dyss/python-functions/* directory and start a python3 terminal session by running `python3`.
-        11. Run `exec(open("pf_fancy_map_img_creation.py).read())`
-        12. Then run `pf_fancy_map_img_creation()`
-            1. In the start, the script will take a bit of time to run as it is indexing and reverse indexing the NuScenes data.
-            2. Once indexing is complete, it will prompt you to enter in a scene number string (i.e. scene-0249). And then it'll start evaluating the scene!
-            3. The .png images needed for a GIF animation will be saved in */where-dyss/output/Images/PF/*
-        13. Navigate to the */where-dyss/output/Images/PF/* directory in a normal Terminal session, and run the following in `convert -delay 50 -loop 0 <scene-entrystring_here>*.png <scene-entrystring_here>.gif` where `scene-entrystring_here` is for example 'scene-0249' without quotes. This will create a GIF of the data!
-        14. Here is an animation of the 
+    9. Now that the data has been saved, we can visualize it in Python!
+    10. In a new Terminal window, navigate to */where-dyss/python-functions/* directory and start a python3 terminal session by running `python3`.
+    11. Run `exec(open("pf_fancy_map_img_creation.py).read())`
+    12. Then run `pf_fancy_map_img_creation()`
+        1. In the start, the script will take a bit of time to run as it is indexing and reverse indexing the NuScenes data.
+        2. Once indexing is complete, it will prompt you to enter in a scene number string (i.e. scene-0249). And then it'll start evaluating the scene!
+        3. The .png images needed for a GIF animation will be saved in */where-dyss/output/Images/PF/*
+    13. Navigate to the */where-dyss/output/Images/PF/* directory in a normal Terminal session, and run the following in `convert -delay 50 -loop 0 <scene-entrystring_here>*.png <scene-entrystring_here>.gif` where `scene-entrystring_here` is for example 'scene-0249' without quotes. This will create a GIF of the data!
+    14. Here is a GIF of the result!
     
+        ![scene-0249_gif_result]{scene-0249.gif}

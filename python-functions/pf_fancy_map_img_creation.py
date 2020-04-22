@@ -11,14 +11,18 @@ def pf_fancy_map_img_creation():
     # Since boot up takes a while, print a message
     print('This may take a while, please wait . . .')
 
+    # Embedded function to open desired .py files into function workspace
+    def func_call(filename):
+        exec(open(filename).read(), globals(), globals())
+    
     # Initialize Everything
-    exec(open("../python-scripts/init_everything.py").read())
+    func_call("./init_everything.py")
 
     # Bring in grab_annotations_fcn.py (grab_annotations_data function)
-    exec(open("grab_annotations_fcn.py").read())
+    func_call("./grab_annotations_fcn.py")
 
     # Convert Particle Filter points from Matlab to Python. This outputs the data in an array named "arrays"
-    exec(open("convert_matlab_to_python.py").read())
+    func_call("./convert_matlab_to_python.py")
 
     # Set up directory showing where final images will be saved to
     dir_to_save = '../output/Images/PF/'

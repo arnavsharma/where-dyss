@@ -1,6 +1,6 @@
 ## Welcome to the Data README!
 
-The data used in the project is from the publicly available source [NuScenes by Aptiv](https://www.nuscenes.org)]. It is a very large dataset (~500 GB) for development of autonomous driving. There are multiple situations (clear, rain, wet, straight driving, left/right turns, etc.) that seem very attractive for anyone studying autonomous driving. The semantic annotation is quite detailed and 20+ classes are provided. More detailed information about this dataset can be found at their website in the link above.
+The data used in the project is from the publicly available source [NuScenes by Aptiv](https://www.nuscenes.org). It is a very large dataset (~500 GB) for development of autonomous driving. There are multiple situations (clear, rain, wet, straight driving, left/right turns, etc.) that seem very attractive for anyone studying autonomous driving. The semantic annotation is quite detailed and 20+ classes are provided. More detailed information about this dataset can be found at their website in the link above.
 
 To download the data to use our project code, please follow the following steps:
 1. Clone the NuScenes GitHub [repository]{https://github.com/nutonomy/nuscenes-devkit} into your $HOME directory. Then change directories into *nuscenes-devkit*. Install NuScenes by running the following code: and install it using `pip3 install nuscenes-devkit`.
@@ -21,7 +21,7 @@ For our project, all data and necessary variables we used have been saved in .pi
 
 We looked at 9 different scenes in this large dataset, here is the details of them:
 
-The camera recordings of these scenes can be viewed [here]{https://www.nuscenes.org/explore/scene-0069/0}.
+The camera recordings of these scenes can be viewed [here](https://www.nuscenes.org/explore/scene-0069/0).
 
 | Item No. | Scene Name | Description                                                                      | Location  | Interesting Things to Note                                                                                                                                                                                                                                                                                                                                                                              | Data ZIP Folder Online | Download Link Country |
 |----------|------------|----------------------------------------------------------------------------------|-----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------:|:---------------------:|

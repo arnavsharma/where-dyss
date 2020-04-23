@@ -36,12 +36,12 @@ The other ones include:
 * time
 
 ### Step-by-step Instructions
-1. Read and complete all steps listed in */where-dyss/readme_files/dataREADME.md*. It is very crucial that the resulting folder structure be exactly how it is stated in that README file.
+1. Read and complete all steps listed in [dataREADME](readme_files/dataREADME.md). It is very crucial that the resulting folder structure be exactly how it is stated in that README file.
 2. Git clone this project! `git clone https://github.com/arnavsharma/where-dyss.git`
 3. Running the Particle Filter code
-    1. Make sure to read the */where-dyss/readme_files/pfREADME.md* file to get an idea of how the particle filter works.
+    1. Make sure to read the [pfREADME](readme_files/pfREADME.md) file to get an idea of how the particle filter works.
     2. Follow the steps in there for some particle filter greatness.
 4. Running the Invariant Extended Kalman Filter code
-    1. Make sure to read the */where-dyss/readme_files/iekfREADME.md* file to get an idea of how the invariant extended Kalman filter works.
+    1. Make sure to read the [iekfREADME](readme_files/iekfREADME.md) file to get an idea of how the invariant extended Kalman filter works.
     2. Follow the steps in there for some even more filter greatness.
 5. Fork this repository and enjoy!

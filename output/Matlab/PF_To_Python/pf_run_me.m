@@ -194,6 +194,6 @@ for scene_array_indx = 1:length(desired_scenes)
         save(filename,'numSamplesPerScene','-append','-nocompression')
     end
     
-    clc; clearvars -except scene_array_indx desired_scenes want_videos_jpg want_mat_files;% close all
+    clc; clearvars -except scene_array_indx desired_scenes want_videos_jpg want_mat_files; close all
     
 end

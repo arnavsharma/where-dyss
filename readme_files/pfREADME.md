@@ -19,7 +19,7 @@ Please check the project paper and Matlab code (in */where-dyss/output/Matlab/PF
 6. If you would like to not save the .mat files for animation purposes in Python, set `want_mat_files` to `0` in Line 23 of *pf_run_me.m*. Leave it set to `1` if you want to save .mat files for each scene. As in the previous step, please kindly move the .mat files one level down into *Variable_Landmarks* folder.
 7. The resulting directory if both save options are set to `1` will look like the following:
     
-    ![pf .mat file directory](pf_mat_file_directory.png)
+    ![pf .mat file directory](readme_files/pf_mat_file_directory.png)
     
 8. Now that the data has been saved, we can visualize it in Python!
 9. In a new Terminal window, navigate to */where-dyss/python-functions/* directory and start a python3 terminal session by running `python3`.
@@ -31,7 +31,7 @@ Please check the project paper and Matlab code (in */where-dyss/output/Matlab/PF
 12. Navigate to the */where-dyss/output/Images/PF/* directory in a normal Terminal session, and run the following in `convert -delay 50 -loop 0 <scene-entrystring_here>*.png <scene-entrystring_here>.gif` where `scene-entrystring_here` is for example 'scene-0249' without quotes. This will create a GIF of the data!
 13. Here is a GIF of the result!
 
-    ![scene-0249_gif_result](scene-0249.gif )
+    ![scene-0249_gif_result](readme_files/scene-0249.gif )
 
 
 ### Quick Description of Python Files

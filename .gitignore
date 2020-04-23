@@ -4,3 +4,5 @@
 /output/Images/Introduction/concatenated_images/*.png
 /output/Images/PF/scene-0249*.png
 !/output/Images/PF/scene-0249pfn_final.png
+!/readme_files/*.png
+!/readme_files/*.gif

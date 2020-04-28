@@ -2,7 +2,7 @@
 % 
 % This script will generate MPEG-4 video files of the particles for each
 % desired scene as listed starting in Line 18. JPEG files of the ground
-% truth (aka ego_pose at 2Hz as provided by NuScenes) superimposed with the
+% truth (aka ego_pose at 2 Hz as provided by nuScenes) superimposed with the
 % estimated states by the particles are generated. These already generated
 % files can be found in \where-dyss\output\Matlab\PF.
 %
@@ -162,6 +162,8 @@ for scene_array_indx = 1:length(desired_scenes)
         % Pause value should be 0.5s but for development purposes, it has
         % been set to 0.1s.
         pause(0.1)
+        
+        
     end
     if want_videos_jpg
         close(writerObj);

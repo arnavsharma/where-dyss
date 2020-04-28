@@ -4,7 +4,7 @@
 
 The invariant extended Kalman filter (InEKF or IEKF) has been a recent discovery in the probabilistic methods space. It is up and coming and has many advantages compared to other filters. One advantage is the ability to use Lie Groups/Algebra - a modern breakthrough in mathematics.
 
-In this IEKF, we have considered using the inertial measurement unit (IMU) at 100 Hz for state and covariance prediction. The ego pose data (pseudo-GPS) from a LiDAR map-based localization algorithm developed by NuScenes by Aptiv is utilized in the correction step.
+In this IEKF, we have considered using the inertial measurement unit (IMU) at 100 Hz for state and covariance prediction. The ego pose data (pseudo-GPS) from a LiDAR map-based localization algorithm developed by nuScenes by Aptiv is utilized in the correction step.
 
 Please check the project paper and MATLAB code (in */where-dyss/output/Matlab/IEKF_To_Python/*) to see the noise covariance matrices used in the prediction and correction steps.
 
@@ -18,7 +18,7 @@ Please check the project paper and MATLAB code (in */where-dyss/output/Matlab/IE
 4. To check out more how the IEKF is designed and built, please take a look at the other functions in the current MATLAB directory including the InEKF.m class.
 5. To view the data on a Fancy Map in Python, navigate to */where-dyss/python-functions/* and open a new Terminal in this folder. Type in `python3` to begin a Python3 terminal session. 
 6. Bring the *iekf_fancy_map_img_creation.py* into the python workspace by running the following code: `exec(open("iekf_fancy_map_img_creation.py").read())`. Run the actual function by running `iekf_fancy_map_img_creation()`.
-    1. In the start, the script will take a bit of time to run as it is indexing and reverse indexing the NuScenes data.
+    1. In the start, the script will take a bit of time to run as it is indexing and reverse indexing the nuScenes data.
     2. Once indexing is complete, it will prompt you to enter in a scene number string (i.e. scene-0249). And then it'll start evaluating the scene!
     3. The .png images needed for a GIF animation will be saved in */where-dyss/output/Images/IEKF/concatenated_images/*
 7. Navigate to the */where-dyss/output/Images/IEKF/concatenated_images/* directory in a normal Terminal session, and run the following in `convert -delay 1 -loop 0 <scene-entrystring_here>*.png <scene-entrystring_here>.gif` where `scene-entrystring_here` is for example 'scene-0249' without quotes. This will create a GIF of the data!

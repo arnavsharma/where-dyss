@@ -5,7 +5,7 @@ def iekf_fancy_map_img_creation():
 	# To bring this function into another function/script, please modify/run the following every time you make a change:
 	# exec(open("iekf_fancy_map_img_creation.py").read())
 	#
-	# Use this script to plot all of the Invariant EKF data on the NuScenes Fancy Map and output the final path
+	# Use this script to plot all of the Invariant EKF data on the nuScenes Fancy Map and output the final path
 	#
 
 	# Since boot up takes a while, print a message

@@ -1,9 +1,9 @@
 ## Welcome to the Data README!
 
-The data used in the project is from the publicly available source [NuScenes by Aptiv](https://www.nuscenes.org). It is a very large dataset (~500 GB) for development of autonomous driving. There are multiple situations (clear, rain, wet, straight driving, left/right turns, etc.) that seem very attractive for anyone studying autonomous driving. The semantic annotation is quite detailed and 20+ classes are provided. More detailed information about this dataset can be found at their website in the link above.
+The data used in the project is from the publicly available source [nuScenes by Aptiv](https://www.nuscenes.org). It is a very large dataset (~500 GB) for development of autonomous driving. There are multiple situations (clear, rain, wet, straight driving, left/right turns, etc.) that seem very attractive for anyone studying autonomous driving. The semantic annotation is quite detailed and 20+ classes are provided. More detailed information about this dataset can be found at their website in the link above.
 
 To download the data to use our project code, please follow the following steps:
-1. Clone the NuScenes GitHub [repository]{https://github.com/nutonomy/nuscenes-devkit} into your $HOME directory. Then change directories into *nuscenes-devkit*. Install NuScenes by running the following code: and install it using `pip3 install nuscenes-devkit`.
+1. Clone the nuScenes GitHub [repository]{https://github.com/nutonomy/nuscenes-devkit} into your $HOME directory. Then change directories into *nuscenes-devkit*. Install nuScenes by running the following code: and install it using `pip3 install nuscenes-devkit`.
 2. In the project directory */where-dyss/data/sets/nuscenes/*, please [download]{https://www.nuscenes.org/download} the US (unless specified) versions of CAN bus expansion, Map expansion, Full dataset (v1.0) (Metadata, Trainval Zip folders: 1, 3, 4, 5, (Asia) 10). This will include all the data used in our project. A table is provided below with descriptions of the scenes. To use other scenes that may be provided in other Zip folders, please download the other Zip folders as you see fit.
 
 3. After all is downloaded, please go back to the *$HOME/nuscenes-devkit* directory in Terminal and run `pip3 install -r setup/requirements.txt`.

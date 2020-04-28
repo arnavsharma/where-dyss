@@ -2,7 +2,7 @@
 % 
 % This script will run an Invariant EKF class object on incoming data from
 % the inertial sensor (IMU) at 100 Hz and the ego pose (ground truth)
-% created by a NuScenes LiDAR map-based localization algorithm at 50 Hz.
+% created by a nuScenes LiDAR map-based localization algorithm at 50 Hz.
 % Hence we are predicting twice and correcting once. The output estimated
 % state (x,y) is superimposed on the ground truth data and is saved as a
 % .png file. If you want to see the estimated pose along with covariance on
@@ -14,7 +14,7 @@
 % Additionally, our prediction uses right-invariant data and in correction
 % we have left-invariant observations.
 % 
-% If you would like to look at a different scene from the NuScenes dataset,
+% If you would like to look at a different scene from the nuScenes dataset,
 % please change the string in Line 35. Make sure you have total 4 digits in
 % the string. For example, '0065', '0234', '1018', etc.
 

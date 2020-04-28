@@ -15,7 +15,7 @@ import warnings
 
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
-# Import NuScenes Data for Dataset Analysis
+# Import nuScenes Data for Dataset Analysis
 from nuscenes.nuscenes import NuScenes
 
 # Import NuScenes Map Data for Map Analysis

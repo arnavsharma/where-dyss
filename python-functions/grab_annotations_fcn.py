@@ -6,7 +6,7 @@ def grab_annotations_data(nusc, my_scene, indx):
     # exec(open("grab_annotations_fcn.py").read())
     #
     # Inputs:
-    #   nusc                - NuScenes instance
+    #   nusc                - nuScenes instance
     #   my_scene            - scene instance using nusc.scene[instance_index]
     #   indx                - for-loop index through the samples in specified scene
     #

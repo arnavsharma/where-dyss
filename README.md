@@ -19,7 +19,7 @@ We are Where DYSS (Ford Team No. 1) and this is our project page for Mobile Robo
 
 NEED TO DO
 
-### Dependencies
+### Python Dependencies
 There are quite a few libraries needed for the project code to run. The most important dependency (NuScenes, NuScenesMap, etc.) is explained in */where-dyss/readme_files/dataREADME.md*.
 
 The other ones include:
@@ -34,6 +34,9 @@ The other ones include:
 * pandas
 * warnings
 * time
+
+### MATLAB Dependencies
+In this project, we used MATLAB R2019b. No special add-on toolboxes are required.
 
 ### Step-by-step Instructions
 1. Read and complete all steps listed in [dataREADME](readme_files/dataREADME.md). It is very crucial that the resulting folder structure be exactly how it is stated in that README file.

@@ -51,7 +51,7 @@ def pf_fancy_map_img_creation():
         raise SystemExit
 
     else:
-        arrays = convert_matlab_to_python(scene_name_str)
+        arrays = convert_matlab_to_python('PF',scene_name_str)
         print('\n', 'Evaluating ', scene_name_str, '. . .')
 
     # Determine scene indexing value
@@ -158,6 +158,8 @@ def pf_fancy_map_img_creation():
         land_scatter.remove()
         pf_scatter.remove()
         pred_line[0].remove()
+        
+        print('\nData Point ' + str(i) + ' of ' + str(my_scene['nbr_samples']))
         
 
     # Get final particle filter path data

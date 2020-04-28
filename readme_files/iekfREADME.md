@@ -2,48 +2,35 @@
 
 ### Invariant EKF Description
 
-Complete now.
+The invariant extended Kalman filter (InEKF or IEKF) has been a recent discovery in the probabilistic methods space. It is up and coming and has many advantages compared to other filters. One advantage is the ability to use Lie Groups/Algebra - a modern breakthrough in mathematics.
 
-The particle filter is a widely used filter in robotics, autonomous vehicles, and other industries today. It is versatile, easy to understand, yet powerful enough to meet the needs of many problems.
+In this IEKF, we have considered using the inertial measurement unit (IMU) at 100 Hz for state and covariance prediction. The ego pose data (pseudo-GPS) from a LiDAR map-based localization algorithm developed by NuScenes by Aptiv is utilized in the correction step.
 
-We have assumed we do not know the input from the driver (steering, acceleration), therefore the model is built on a random walk model. The measurement sees range and bearing of each landmark as it comes in. We wanted to limit the number of landmarks used in the filter as a large number of landmarks will lock in the particles directly on top of each other and therefore will lead to sample impoverishment.
-
-Please check the project paper and Matlab code (in */where-dyss/output/Matlab/PF_To_Python/*) to see the noise covariance matrices used for the motion model, measurement model, etc.
+Please check the project paper and MATLAB code (in */where-dyss/output/Matlab/IEKF_To_Python/*) to see the noise covariance matrices used in the prediction and correction steps.
 
 ### Step-by-step Instructions
-1. Skip to Step 10 if you want to just visualize the 'scene-0249' data the group presented at the end of the Winter 2020 semester in Python.
-2. The following code in Step 2.iv will be run in a *normal* terminal window (not in a Python3 terminal). The starting directory will be */where-dyss/python-scripts*. Step 2.iv may take some time to run, so please be patient
-3. `python3 pf_data_to_matlab.py`
-    1. This will save the landmarks (annotations) position and ego vehicle position among other housekeeping items such as number of samples per scene, number of annotations per sample per scene, etc.
-    2. The resulting .mat files will be saved in */where-dyss/python-scripts*. Please move them to */where-dyss/own_data/PF_To_Matlab/Variable_Landmarks*.
-4. Open an instance of Matlab and navigate the current directory to */where-dyss/output/Matlab/PF_To_Python*. The .m files here (pf_run_me.m and particle_filter.m) will simulate the particle filter.
-5. If you would like to not save an MP4 video of the particles being propagated and corrected **and** a JPG of the final estimated states path on top of ego_pose (ground truth), set `want_videos_jpg` to `0` in Line 22 of *pf_run_me.m*. Leave it set to `1` if you want to save MP4 videos of each scene. The videos and images will be saved in this directory. Kindly move them one level down into *Variable_Landmarks* folder.
-6. If you would like to not save the .mat files for animation purposes in Python, set `want_mat_files` to `0` in Line 23 of *pf_run_me.m*. Leave it set to `1` if you want to save .mat files for each scene. As in the previous step, please kindly move the .mat files one level down into *Variable_Landmarks* folder.
-7. The resulting directory if both save options are set to `1` will look like the following:
-    
-    ![pf .mat file directory](pf_mat_file_directory.png)
-    
-8. Now that the data has been saved, we can visualize it in Python!
-9. In a new Terminal window, navigate to */where-dyss/python-functions/* directory and start a python3 terminal session by running `python3`.
-10. Run `exec(open("pf_fancy_map_img_creation.py).read())`
-11. Then run `pf_fancy_map_img_creation()`
+1. Skip to Step 6 if you want to just visualize the 'scene-0249' data the group presented at the end of the Winter 2020 semester in Python.
+2. The following code will all be run in MATLAB and then be visualized in a fancy manner in Python. Make sure to navigate to the */where-dyss/output/Matlab/IEKF_To_Python/* directory to start.
+3. Open *iekf_run_me.m*
+    1. Set Line 28 value to `1` if you would like to watch the IEKF plot live the estimated states and covariance ellipse. The final path the vehicle takes is automatically displayed after the filter runs regardless of this setting. The Mahalanobis and 3-Covariance plots are displayed as well.
+    2. Set Line 29 value to `1` if you would like to save the data in .mat files to then be viewed in Python. They will be saved in this current directory, so please move them to */where-dyss/output/Matlab/IEKF_To_Python/data/*.
+    3. Set Line 36 to your own desired scene number (in order to view the data on a Fancy Map in Python, please select one of our evaluated scenes as described in [dataREADME](.dataREADME.md). Make sure it is a string with length 4.
+4. To check out more how the IEKF is designed and built, please take a look at the other functions in the current MATLAB directory including the InEKF.m class.
+5. To view the data on a Fancy Map in Python, navigate to */where-dyss/python-functions/* and open a new Terminal in this folder. Type in `python3` to begin a Python3 terminal session. 
+6. Bring the *iekf_fancy_map_img_creation.py* into the python workspace by running the following code: `exec(open("iekf_fancy_map_img_creation.py").read())`. Run the actual function by running `iekf_fancy_map_img_creation()`.
     1. In the start, the script will take a bit of time to run as it is indexing and reverse indexing the NuScenes data.
     2. Once indexing is complete, it will prompt you to enter in a scene number string (i.e. scene-0249). And then it'll start evaluating the scene!
-    3. The .png images needed for a GIF animation will be saved in */where-dyss/output/Images/PF/*
-12. Navigate to the */where-dyss/output/Images/PF/* directory in a normal Terminal session, and run the following in `convert -delay 50 -loop 0 <scene-entrystring_here>*.png <scene-entrystring_here>.gif` where `scene-entrystring_here` is for example 'scene-0249' without quotes. This will create a GIF of the data!
-13. Here is a GIF of the result!
+    3. The .png images needed for a GIF animation will be saved in */where-dyss/output/Images/IEKF/concatenated_images/*
+7. Navigate to the */where-dyss/output/Images/IEKF/concatenated_images/* directory in a normal Terminal session, and run the following in `convert -delay 1 -loop 0 <scene-entrystring_here>*.png <scene-entrystring_here>.gif` where `scene-entrystring_here` is for example 'scene-0249' without quotes. This will create a GIF of the data!
+8. Here is a GIF of the result!
 
-    ![scene-0249_gif_result](scene-0249.gif )
+    ![scene-0249_gif_result](./scene-0249_iekf.gif )
 
 
-### Quick Description of Python Files
+### Quick Description of MATLAB Files
 
-The Python files here extract up to 20% of the semantic annotations sensed per sample (time-step) per scene. This data is then packaged in a quick 3D matrix to be sent to Matlab using .mat files. 
+The getNusceneDataset.m function is a very powerful function in gathering all the necessary CAN bus data into a usable MATLAB structure object. It even has the capabilities of lining up the signals based on the ctime of each signal. This is crucial for a successful run of the IEKF filter. Due to the IMU data coming in at 100 Hz and the pseudo-GPS coming in at 50 Hz, we decided to predict twice using IMU and correct once using psuedo-GPS. 
 
-In */where-dyss/python-scripts/pf_data_to_matlab.py*, each sample is ran in a for-loop to utilize the Python function in */where-dyss/python-functions/grab_annotations_fcn.py*. There are very specific inputs needed in this Python function. Please read this function's description to better understand the format. Please read the *pf_data_to_matlab.py* file to see how the inputs are built to feed into the Python function.
+Additionally, a Lie-to-Cartesian script is run to be able to view the covariance ellipse on the map. 
 
-### Quick Description of Matlab Files
-
-The packaged .mat files are then run in Matlab as a for-loop through the scenes we picked. The PF class definition is located in */where-dyss/output/Matlab/PF/particle_filter.m*. To utilize this class, the code running the for-loop through scenes, samples, and annotations (for particle position correction) is in */where-dyss/output/Matlab/PF/pf_run_me.m*. 
-
-Running this script above will output the particle filter as an MPEG-4 video file along with a JPEG of the estimated states (*x* and *y* position of vehicle) against the ego pose outputted by a LiDAR state estimation algorithm developed by NuScenes. Additionally, a .mat file of the particle positions at every time-step and the final array of estimated states is saved for plotting on top of the 'fancy map' in Python. 
+As seen in the paper, it is crucial to note that there are 9 dimensions in this setup. Therefore the covariance matrix is set up to be 9x9.

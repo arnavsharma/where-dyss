@@ -1,13 +1,13 @@
 # Get pictures of ego_poses for each scene we are interested in
 
 # Initialize all of the packages we need
-exec(open("init_everything.py").read())
+exec(open("../python-functions/init_everything.py").read())
 
 # Bring in grab_data_fcn.py (grab_sensor_data function)
 exec(open("../python-functions/grab_annotations_fcn.py").read())
 
 # Define dataset
-nusc = NuScenes(version='v1.0-trainval', dataroot='/../data/sets/nuscenes', verbose=False)
+nusc = NuScenes(version='v1.0-trainval', dataroot='../data/sets/nuscenes', verbose=False)
 
 # Define map: Start at boston-seaport
 nusc_map_bost = NuScenesMap(dataroot='../data/sets/nuscenes', map_name='boston-seaport')

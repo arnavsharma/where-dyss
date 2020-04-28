@@ -1,4 +1,4 @@
-def convert_matlab_to_python(scene_choice):
+def convert_matlab_to_python(filter_string, scene_choice):
 
     # EECS 568, Winter 2020, Ford Team 1
     #
@@ -11,7 +11,10 @@ def convert_matlab_to_python(scene_choice):
     import h5py
     import numpy as np
 
-    filepath = '../output/Matlab/PF_To_Python/Variable_Landmarks/' + scene_choice + '_2py.mat'
+    if filter_string == 'PF':
+        filepath = '../output/Matlab/PF_To_Python/Variable_Landmarks/' + scene_choice + '_2py.mat'
+    elif filter_string == 'IEKF':
+        filepath = '../output/Matlab/IEKF_To_Python/data/' + scene_choice + '_iekf_2py.mat'
 
     arrays = {}
 

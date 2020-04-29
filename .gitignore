@@ -1,2 +1,11 @@
 .DS_Store
 /data/**/*.json
+*.pickle
+/output/Images/Introduction/concatenated_images/*.png
+/output/Images/PF/scene-0249*.png
+/output/Images/IEKF/concatenated_images/*.png
+/output/Images/PF/concatenated_images/*.png
+/output/Images/IEKF/every_10_images/*.png
+!/output/Images/PF/concatenated_images/scene-0249pfn_final.png
+!/readme_files/*.png
+!/readme_files/*.gif

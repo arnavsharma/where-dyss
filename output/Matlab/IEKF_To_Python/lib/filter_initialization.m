@@ -1,7 +1,7 @@
 function filter = filter_initialization(initialStateMean,initialStateCov, filter_name)
 switch filter_name
         
-    case "InEKF"
+    case "IEKF"
         init.mu = eye(5);
         init.mu(1,5) = initialStateMean(1);
         init.mu(2,5) = initialStateMean(2);
@@ -22,6 +22,6 @@ switch filter_name
         init.mu(3,3) = cos(theta)*cos(phi);
         
         init.Sigma = initialStateCov;
-        filter = InEKF(init);
+        filter = IEKF(init);
 end
 end

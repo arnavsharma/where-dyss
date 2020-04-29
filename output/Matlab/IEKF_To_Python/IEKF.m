@@ -1,4 +1,4 @@
-classdef InEKF < handle
+classdef IEKF < handle
     % Invariant EKF class for EECS 568, Winter 2020, Ford Team 1
     % The implementation follows the Lecture Slides provided by Prof.
     % Jadidi
@@ -13,7 +13,7 @@ classdef InEKF < handle
     end
     
     methods
-        function obj = InEKF(init)
+        function obj = IEKF(init)
             % Invariant EKF construct an instance of this class
             %
             %   Inputs:

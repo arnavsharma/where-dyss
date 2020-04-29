@@ -6,8 +6,10 @@
 % Hence we are predicting twice and correcting once. The output estimated
 % state (x,y) is superimposed on the ground truth data and is saved as a
 % .png file. If you want to see the estimated pose along with covariance on
-% cartesian live, please change the value in Line 18 to 1. 
+% cartesian live, please change the value in Line 32 to 1. 
 %
+% If you would like .mat files outputted, please change value in Line 33 to
+% 1.
 % Once the .mat files are created, please move the .mat files into
 % /where-dyss/output/Matlab/IEKF_To_Python/data/.
 %
@@ -17,6 +19,9 @@
 % If you would like to look at a different scene from the nuScenes dataset,
 % please change the string in Line 35. Make sure you have total 4 digits in
 % the string. For example, '0065', '0234', '1018', etc.
+%
+% Mahalanobis calculations can be uncommented in Lines 98-107, 163-174,
+% 194-227.
 
 clear all; clc; close all;
 addpath([cd, filesep, 'lib'])
@@ -52,7 +57,7 @@ initialStateCov = 1*eye(9);
 
 numSteps = size(data_struct.IMU_rot_rate, 1);
 
-filter_name = "InEKF";
+filter_name = "IEKF";
 filter = filter_initialization(initialStateMean, initialStateCov, filter_name);
 
 x_plot = initial_x;
@@ -90,16 +95,16 @@ for t = 2:numSteps
     
     motionCommandNoisy = [angular_vel_noisy, linear_accel_noisy];
     
-    % For Mahalanobis Calculations
-    if t == 2
-        gps_x = initial_x;
-        gps_y = initial_y;
-        gps_z = initial_z;
-        gps_phi = initial_phi; % roll
-        gps_theta = initial_theta; % pitch
-        gps_psi = initial_psi; % yaw
-        gps_v_long = [v_long, 0]';
-    end
+%     % For Mahalanobis Calculations
+%     if t == 2
+%         gps_x = initial_x;
+%         gps_y = initial_y;
+%         gps_z = initial_z;
+%         gps_phi = initial_phi; % roll
+%         gps_theta = initial_theta; % pitch
+%         gps_psi = initial_psi; % yaw
+%         gps_v_long = [v_long, 0]';
+%     end
      
     if mod(t, 2) == 1 % odd for-loop step
         gps_x = data_struct.Pose_Position(round(t/2), 1);
@@ -117,7 +122,7 @@ for t = 2:numSteps
     %=================================================
     
     switch filter_name
-        case "InEKF"
+        case "IEKF"
             filter.prediction(motionCommandNoisy)
             if mod(t, 2) ~= 1 % even for-loop step
                 filter.mu = filter.mu_pred;
@@ -155,18 +160,18 @@ for t = 2:numSteps
         ELLIPSE(:,2*t-1:2*t) = ELLIPSE(:,2*t-3:2*t-2);
     end
     
-    % 3 covariance
-    for i = 1:9
-        three_cov(i,1) = 3*sqrt(filter.sigma_cart(i,i));
-    end
-%     three_cov = [3*sqrt(filter.sigma_cart(7,7));3*sqrt(filter.sigma_cart(8,8));3*sqrt(filter.sigma_cart(3,3))];
-    diff = [0;0;(gps_psi - yaw_plot(t));0;0;0;(gps_x - x_plot(t));(gps_y - y_plot(t));0];
-%     diff = [(gps_x - x_plot(t));(gps_y - y_plot(t));(gps_psi - yaw_plot(t))];
-    result_val = (diff)' * (filter.sigma_cart \ diff);
-    
-    output_maha(1:3,t-1) = diff([3,7,8]);
-    output_maha(4,t-1) = result_val;
-    output_maha(5:7,t-1) = three_cov([3,7,8]);
+%     % 3 covariance
+%     for i = 1:9
+%         three_cov(i,1) = 3*sqrt(filter.sigma_cart(i,i));
+%     end
+% %     three_cov = [3*sqrt(filter.sigma_cart(7,7));3*sqrt(filter.sigma_cart(8,8));3*sqrt(filter.sigma_cart(3,3))];
+%     diff = [0;0;(gps_psi - yaw_plot(t));0;0;0;(gps_x - x_plot(t));(gps_y - y_plot(t));0];
+% %     diff = [(gps_x - x_plot(t));(gps_y - y_plot(t));(gps_psi - yaw_plot(t))];
+%     result_val = (diff)' * (filter.sigma_cart \ diff);
+%     
+%     output_maha(1:3,t-1) = diff([3,7,8]);
+%     output_maha(4,t-1) = result_val;
+%     output_maha(5:7,t-1) = three_cov([3,7,8]);
 end
 
 if want_mat_files
@@ -186,37 +191,37 @@ title('Pose in Global Space')
 png_filename = strcat(scene_number, '_iekf_final.png');
 saveas(gcf,png_filename)
 
-% Mahalanobis Distance
-figure; set(gca, 'fontsize', 14);
-hold on; grid on
-plot(output_maha(4,:), 'linewidth', 2)
-plot(16.92*ones(1,length(x_plot)),'r', 'linewidth', 2)
-legend('Chi-square Staistics','p = 0.05 w/ 9 DOF', 'fontsize', 14, 'location', 'best')
-png_filename = strcat(scene_number, '_iekf_maha.png');
-saveas(gcf,png_filename)
-
-figure; set(gca, 'fontsize', 14)
-subplot(3,1,1)
-plot(output_maha(2,:), 'linewidth', 2)
-hold on; grid on
-ylabel('X', 'fontsize', 14)
-plot(output_maha(6,:),'r', 'linewidth', 2)
-plot(-1*output_maha(6,:),'r', 'linewidth', 2)
-legend('Deviation from Ground Truth','3rd Sigma Contour', 'fontsize', 14, 'location', 'best')
-subplot(3,1,2)
-plot(output_maha(3,:), 'linewidth', 2)
-hold on; grid on
-plot(output_maha(7,:),'r', 'linewidth', 2)
-plot(-1*output_maha(7,:),'r', 'linewidth', 2)
-% plot(3*ones(1,length(results)),'r')
-ylabel('Y', 'fontsize', 14)
-subplot(3,1,3)
-plot(output_maha(1,:), 'linewidth', 2)
-hold on; grid on
-plot(output_maha(5,:),'r', 'linewidth', 2)
-plot(-1*output_maha(5,:),'r', 'linewidth', 2)
-% plot(3*ones(1,length(results)),'r')
-ylabel('yaw', 'fontsize', 14)
-xlabel('Iterations', 'fontsize', 14)
-png_filename = strcat(scene_number, '_iekf_cov.png');
-saveas(gcf,png_filename)
+% % Mahalanobis Distance
+% figure; set(gca, 'fontsize', 14);
+% hold on; grid on
+% plot(output_maha(4,:), 'linewidth', 2)
+% plot(16.92*ones(1,length(x_plot)),'r', 'linewidth', 2)
+% legend('Chi-square Staistics','p = 0.05 w/ 9 DOF', 'fontsize', 14, 'location', 'best')
+% png_filename = strcat(scene_number, '_iekf_maha.png');
+% saveas(gcf,png_filename)
+% 
+% figure; set(gca, 'fontsize', 14)
+% subplot(3,1,1)
+% plot(output_maha(2,:), 'linewidth', 2)
+% hold on; grid on
+% ylabel('X', 'fontsize', 14)
+% plot(output_maha(6,:),'r', 'linewidth', 2)
+% plot(-1*output_maha(6,:),'r', 'linewidth', 2)
+% legend('Deviation from Ground Truth','3rd Sigma Contour', 'fontsize', 14, 'location', 'best')
+% subplot(3,1,2)
+% plot(output_maha(3,:), 'linewidth', 2)
+% hold on; grid on
+% plot(output_maha(7,:),'r', 'linewidth', 2)
+% plot(-1*output_maha(7,:),'r', 'linewidth', 2)
+% % plot(3*ones(1,length(results)),'r')
+% ylabel('Y', 'fontsize', 14)
+% subplot(3,1,3)
+% plot(output_maha(1,:), 'linewidth', 2)
+% hold on; grid on
+% plot(output_maha(5,:),'r', 'linewidth', 2)
+% plot(-1*output_maha(5,:),'r', 'linewidth', 2)
+% % plot(3*ones(1,length(results)),'r')
+% ylabel('yaw', 'fontsize', 14)
+% xlabel('Iterations', 'fontsize', 14)
+% png_filename = strcat(scene_number, '_iekf_cov.png');
+% saveas(gcf,png_filename)

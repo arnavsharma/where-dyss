@@ -17,7 +17,7 @@ We are Where-DYSS (Ford Team No. 1) and this is our project page for Mobile Robo
 
 ### Project Information
 
-In this project, we will compare two different probabilistic filters on the nuScenes by Aptiv dataset. The two filters include an Invariant Extended Kalman Filter utilizing Inertial Measurement Unit (IMU) data for prediction and a pseudo-GPS datastream for correction. The second filter is a Particle Filter which utilizes the semantic annotations/landmarks in the dataset. The paper and presentation can be found in */where-dyss/latex_paper/* directory. To view the results directly, please check out the YouTube links [here](/Documents/Youtube_Links.docx)
+In this project, we will compare two different probabilistic filters on the nuScenes by Aptiv dataset. The two filters include an Invariant Extended Kalman Filter utilizing Inertial Measurement Unit (IMU) data for prediction and a pseudo-GPS datastream for correction. The second filter is a Particle Filter which utilizes the semantic annotations/landmarks in the dataset. The paper and presentation can be found in */where-dyss/latex_paper/* directory. To view the results directly, please check out the YouTube links [here](./Documents/Youtube_Links.docx).
 
 ### Python Dependencies
 There are quite a few libraries needed for the project code to run. The most important dependency (NuScenes, NuScenesMap, etc.) is explained in */where-dyss/readme_files/dataREADME.md*.

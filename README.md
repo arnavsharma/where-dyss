@@ -1,6 +1,6 @@
 ## Welcome to our project page!
 
-We are Where DYSS (Ford Team No. 1) and this is our project page for Mobile Robotics (EECS 568).
+We are Where-DYSS (Ford Team No. 1) and this is our project page for Mobile Robotics (EECS 568).
 
 ![where-dyss logo](where-dyss-logo.png)
 

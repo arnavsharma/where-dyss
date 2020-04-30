@@ -1,3 +1,9 @@
+# EECS 568, Winter 2020, Ford Team 1
+#
+# Script to find out Scene-0396 camera images
+#
+# Can be used to find any desired scene's camera images
+
 from nuscenes.nuscenes import NuScenes
 import numpy as np
 import scipy.io as sio

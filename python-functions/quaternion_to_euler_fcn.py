@@ -1,5 +1,18 @@
 def quaternion_to_euler(q):
 
+    # EECS 568, Winter 2020, Ford Team 1
+    #
+    # To bring this function into another function/script, please modify/run the following every time you make a change:
+    # exec(open("quaternion_to_euler_fcn.py").read())
+    #
+    # Use this script to convert a quaternion rotation vector to yaw, pitch, and roll
+    
+    # Inputs:
+    #   q           - quaternion rotation vector (4-dim)
+    #
+    # Outputs:
+    #   None
+    
     import math
     
     (w, x, y, z) = (q[0], q[1], q[2], q[3])

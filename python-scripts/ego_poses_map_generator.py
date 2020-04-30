@@ -1,3 +1,5 @@
+# EECS 568, Winter 2020, Ford Team 1
+#
 # Get pictures of ego_poses for each scene we are interested in
 
 # Initialize all of the packages we need

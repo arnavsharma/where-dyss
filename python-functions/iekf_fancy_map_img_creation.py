@@ -7,6 +7,11 @@ def iekf_fancy_map_img_creation():
 	#
 	# Use this script to plot all of the Invariant EKF data on the nuScenes Fancy Map and output the final path
 	#
+    # Inputs:
+    #   None
+    #
+    # Outputs:
+    #   Figures of the fancy map with IEKF performance
 
 	# Since boot up takes a while, print a message
     print('\nThis may take a while, please wait . . .')

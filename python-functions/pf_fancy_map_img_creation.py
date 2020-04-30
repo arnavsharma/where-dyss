@@ -7,6 +7,11 @@ def pf_fancy_map_img_creation():
     #
     # Use this script to plot all of the Particle Filter points on the nuScenes Fancy Map and output the final path
     #
+    # Inputs:
+    #   None
+    #
+    # Outputs:
+    #   Figures of the fancy map with particle filter performance
 
     # Since boot up takes a while, print a message
     print('This may take a while, please wait . . .')

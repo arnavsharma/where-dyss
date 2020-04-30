@@ -1,4 +1,5 @@
 # EECS 568, Winter 2020, Ford Team 1
+#
 # This script will find the respective indices of the desired scenes and save it into a pickle file to be imported into other scripts/functions.
 
 from nuscenes.nuscenes import NuScenes

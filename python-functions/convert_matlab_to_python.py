@@ -7,6 +7,12 @@ def convert_matlab_to_python(filter_string, scene_choice):
     #
     # Use this to convert Matlab data to be used in Python
     #
+    # Inputs:
+    #   filter_string           - either 'PF' or 'IEKF'
+    #   scene_choice            - scene number .mat file to be converted
+    #
+    # Outputs:
+    #   arrays                  - dictionary of data from .mat file
 
     import h5py
     import numpy as np

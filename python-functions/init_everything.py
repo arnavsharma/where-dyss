@@ -1,3 +1,5 @@
+# EECS 568, Winter 2020, Ford Team 1
+# 
 # Initialize everything needed by calling this file in python3 using the following script
 # exec(open("init_everything.py").read())
 

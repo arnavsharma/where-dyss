@@ -1,5 +1,20 @@
 def plot_car(x_plot, y_plot, yaw_data):
+
+    # EECS 568, Winter 2020, Ford Team 1
+    #
+    # To bring this function into another function/script, please modify/run the following every time you make a change:
+    # exec(open("plot_car.py").read())
+    #
     # Script used to generate vehicle box on fancy map
+    #
+    # Inputs:
+    #   x_plot          - center point of ego_vehicle in x
+    #   y_plot          - center point of ego_vehicle in y
+    #   yaw_data        - yaw (heading) of ego_vehicle in global frame
+    #
+    # Outputs:
+    #   Xrot            - array of rotated vehicle x coordinates for plotting
+    #   Yrot            - array of rotated vehicle y coordinates for plotting
 
     import math
 

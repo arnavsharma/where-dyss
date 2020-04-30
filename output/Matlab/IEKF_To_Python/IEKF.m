@@ -48,8 +48,8 @@ classdef IEKF < handle
             A_mat(4:6,1:3) = -obj.skewSymmMat(u_noise(:,2));
             A_mat(7:9,4:6) = eye(3);
             state_trans_matrix = expm(A_mat * time_step);
-            obj.Sigma_pred = state_trans_matrix * obj.Sigma * state_trans_matrix' + blkdiag(diag([.00001^2, .00001^2, .00001^2, ...
-                1000000^2, 1000000^2, 1000000^2, .1^2, .1^2, 10000^2]));
+            obj.Sigma_pred = state_trans_matrix * obj.Sigma * state_trans_matrix' + diag([0.00001^2, 0.00001^2, 0.00001^2, ...
+                1000000^2, 1000000^2, 1000000^2, 0.1^2, 0.1^2, 10000^2]);
 
         end
         
@@ -69,7 +69,7 @@ classdef IEKF < handle
             R = obj.mu_pred(1:3,1:3);
             R = blkdiag(R,zeros(2,2));
             
-            N = R' * diag([.000001^2;.000001^2;.000001^2;0;0]) * R;
+            N = R' * diag([0.000001^2;0.000001^2;0.000001^2;0;0]) * R;
             N = N(1:3,1:3);
             
             S = H * obj.Sigma_pred * H' + N;
@@ -78,7 +78,7 @@ classdef IEKF < handle
             L = obj.Sigma_pred * H' * (S \ eye(size(S)));
             
             % Innovation
-            nu = (obj.mu_pred \ eye(size(obj.mu_pred))) * (Y - [.00005;.00005;.00005;0;0]) - b;
+            nu = (obj.mu_pred \ eye(size(obj.mu_pred))) * (Y - [0.00005;0.00005;0.00005;0;0]) - b;
             
             % Delta
             delta = L * [eye(3),zeros(3,1),zeros(3,1)] * nu;

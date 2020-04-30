@@ -1,4 +1,4 @@
-## Welcome to our project page! [Click Here for Website](https://arnavsharma.github.io/where-dyss/)
+## Welcome to our open-source project page! [Click Here for Website](https://arnavsharma.github.io/where-dyss/)
 
 We are Where-DYSS (Ford Team No. 1) and this is our project page for Mobile Robotics (EECS 568).
 

@@ -53,7 +53,6 @@ for scene_array_indx = 1:length(desired_scenes)
     sys.f = @(x,w) [x(1); x(2)] + w;
     sys.h = @(x,l)  [sqrt((x(1)-l(1))^2 + (x(2)-l(2))^2); atan2(l(2)-x(2),l(1)-x(1))];
     sys.Q = 9 * eye(2);
-%     sys.R = diag([(0.8)^2 ,(0.45)^2]);
     sys.R = diag([(1.2)^2 ,(0.7)^2]);
     
     % Initialization!

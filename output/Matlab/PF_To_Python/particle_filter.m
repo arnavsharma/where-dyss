@@ -10,7 +10,7 @@ classdef particle_filter < handle
         h;              % measurement model
         x;              % state vector
         Sigma;          % state covariance
-        Q;              % input noise covariance
+        Q;              % motion noise covariance
         LQ;             % Cholesky factor of Q
         R;              % measurement noise covariance
         p;              % particles
